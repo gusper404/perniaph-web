@@ -1,9 +1,32 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import { sanityClient } from "sanity:client";
+
+const posts = await sanityClient.fetch(`*[_type == 'photography'] {
+  _id,
+	_createdAt,
+  image {
+    asset->{
+      url
+    }
+  },
+  category->{
+    _id,
+    title
+  },
+  location->{
+    _id,
+    title
+  },
+  model->{
+    fullname,
+    rrss
+  }
+} | order(publishedAt desc)`);
 ---
 
-<Layout title="Pernía Photography">
+
+<Layout title="Inicio">
 	<header class="absolute top-0 left-0 w-full h-[100px] p-10">
 		<div class="flex items-center justify-between">
 			<div class="logo text-white">Pernía Photography</div>
@@ -24,6 +47,7 @@ import Card from '../components/Card.astro';
 		</section>
 		<section class="aspect-video bg-[#272A21] p-20 text-white">
 			featured
+			<pre class="text-xs">{JSON.stringify(posts, null, 2)}</pre>
 		</section>
 		<section class="grid grid-cols-2">
 			<div class="bg-lime-100">

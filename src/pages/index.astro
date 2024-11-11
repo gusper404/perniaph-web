@@ -1,28 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { sanityClient } from "sanity:client";
-
-const posts = await sanityClient.fetch(`*[_type == 'photography'] {
-  _id,
-	_createdAt,
-  image {
-    asset->{
-      url
-    }
-  },
-  category->{
-    _id,
-    title
-  },
-  location->{
-    _id,
-    title
-  },
-  model->{
-    fullname,
-    rrss
-  }
-} | order(publishedAt desc)`);
+import { getPosts } from '../services';
+const posts = await getPosts()
 ---
 
 

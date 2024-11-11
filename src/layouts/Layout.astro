@@ -1,11 +1,7 @@
 ---
-import { sanityClient } from "sanity:client";
+import { getSettings } from "../services";
 const { title } = Astro.props;
-
-
-const settings = await sanityClient.fetch(`*[_id == 'settings'][0] {
-  title
-}`)
+const settings = await getSettings()
 ---
 
 <!doctype html>

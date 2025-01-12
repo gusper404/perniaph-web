@@ -27,6 +27,13 @@ export const getPosts = async () => {
 
 export const getSettings = async () => {
   return await sanityClient.fetch(groq`*[_id == 'settings'][0] {
-    title
+    title, 
+    bio,
+    image {
+      asset->{
+        url
+      }
+    },
+    rrss
   }`)
 }

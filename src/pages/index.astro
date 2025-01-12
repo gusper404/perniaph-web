@@ -1,32 +1,39 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { getPosts } from '../services';
+import { Image } from 'astro:assets'
 const posts = await getPosts()
 ---
 
 
 <Layout title="Inicio">
-	<header class="absolute top-0 left-0 w-full h-[100px] p-10">
-		<div class="flex items-center justify-between">
-			<div class="logo text-white">Pernía Photography</div>
-			<div>
-				<nav>
-					<ul class="flex items-center gap-10">
-						<li><a href="">Inicio</a></li>
-						<li><a href="">Contacto</a></li>
-					</ul>
-				</nav>
-			</div>
-		</div>
-	</header>
 	<main>
-		<section class="grid grid-cols-2">
-			<div class="aspect-square w-full max-h-[800px] bg-slate-950 text-white"></div>
-			<div class="aspect-square w-full max-h-[800px] bg-[#525647]"></div>
-		</section>
-		<section class="aspect-video bg-[#272A21] p-20 text-white">
-			featured
-			<pre class="text-xs">{JSON.stringify(posts, null, 2)}</pre>
+		<section class="grid md:grid-cols-2">
+			<div class="aspect-square w-full max-h-[800px] bg-slate-950 text-white">
+				<Image
+					class="w-full h-full object-cover" 
+					alt="Foto"
+					width={800}
+					height={800}
+					src="https://cdn.sanity.io/images/kkbq5txa/production/1163e44d846fd70f84d6aa27b41f77f9011ee08d-1512x1729.jpg" />
+				</div>
+				<div class="aspect-square w-full max-h-[800px] bg-[#525647] p-[15%]">
+					<Image
+						class="w-full h-full object-cover" 
+						alt="Foto"
+						width={800}
+						height={800}
+						src="https://cdn.sanity.io/images/kkbq5txa/production/4be333da2fa66298b0b546de4f1098bfe489c39c-605x649.jpg" />
+					</div>
+				</section>
+		<section class="aspect-video bg-[#272A21] p-[5%] text-white">
+			<Image
+				class="w-full object-contain" 
+				alt="Foto"
+				width={1080}
+				height={660}
+				src="https://cdn.sanity.io/images/kkbq5txa/production/effaceee8506a7f118ef8276d037fb07922c7226-1080x660.jpg" />
+			<!-- <pre class="text-xs">{JSON.stringify(posts, null, 2)}</pre> -->
 		</section>
 		<section class="grid grid-cols-2">
 			<div class="bg-lime-100">

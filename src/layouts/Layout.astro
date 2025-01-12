@@ -1,4 +1,6 @@
 ---
+import '@fontsource-variable/comfortaa';
+import Header from "../components/Header.astro";
 import { getSettings } from "../services";
 const { title } = Astro.props;
 const settings = await getSettings()
@@ -14,9 +16,15 @@ const settings = await getSettings()
 		<title>{settings.title} {title && `- ${title}`}</title>
 	</head>
 	<body>
+		<Header />
 		<slot />
 	</body>
 </html>
+<style is:global>
+	body {
+		font-family: 'Comfortaa Variable', system-ui;
+	}
+</style>
 <!-- <style is:global>
 	:root {
 		--accent: 136, 58, 234;

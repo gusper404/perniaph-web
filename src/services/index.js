@@ -7,7 +7,38 @@ export const getPosts = async () => {
     _createdAt,
     image {
       asset->{
-        url
+        url,
+        metadata {
+          dimensions
+        }
+      }
+    },
+    category->{
+      _id,
+      title
+    },
+    location->{
+      _id,
+      title
+    },
+    model->{
+      fullname,
+      rrss
+    }
+  } | order(publishedAt desc)`);
+}
+
+// getHomePosts
+export const getHomePosts = async () => {
+  return await sanityClient.fetch(groq`*[_type == 'photography' && showInHome == true][0...10] {
+    _id,
+    _createdAt,
+     image {
+      asset->{
+        url,
+        metadata {
+          dimensions
+        }
       }
     },
     category->{

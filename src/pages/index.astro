@@ -1,50 +1,28 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { getPosts } from '../services';
+import { getPosts, getHomePosts } from '../services';
 import { Image } from 'astro:assets'
-const posts = await getPosts()
+const homePosts = await getHomePosts()
+// const randomPosts = homePosts.sort(() => Math.random() - 0.5)
 ---
 
 
 <Layout title="Inicio">
 	<main>
-		<section class="grid md:grid-cols-2">
-			<div class="aspect-square w-full max-h-[800px] bg-slate-950 text-white">
-				<Image
-					class="w-full h-full object-cover" 
-					alt="Foto"
-					width={800}
-					height={800}
-					src="https://cdn.sanity.io/images/kkbq5txa/production/1163e44d846fd70f84d6aa27b41f77f9011ee08d-1512x1729.jpg" />
-				</div>
-				<div class="aspect-square w-full max-h-[800px] bg-[#525647] p-[15%]">
+		<section class="columns-2 gap-0">
+			{homePosts.sort(() => Math.random() - 0.5).map((post) => (
+				<figure class="w-full bg-slate-950 text-white">
 					<Image
-						class="w-full h-full object-cover" 
+						class="w-full" 
 						alt="Foto"
-						width={800}
-						height={800}
-						src="https://cdn.sanity.io/images/kkbq5txa/production/4be333da2fa66298b0b546de4f1098bfe489c39c-605x649.jpg" />
-					</div>
-				</section>
-		<section class="aspect-video bg-[#272A21] p-[5%] text-white">
-			<Image
-				class="w-full object-contain" 
-				alt="Foto"
-				width={1080}
-				height={660}
-				src="https://cdn.sanity.io/images/kkbq5txa/production/effaceee8506a7f118ef8276d037fb07922c7226-1080x660.jpg" />
-			<!-- <pre class="text-xs">{JSON.stringify(posts, null, 2)}</pre> -->
-		</section>
-		<section class="grid grid-cols-2">
-			<div class="bg-lime-100">
-				<div class="bg-lime-200 aspect-video">1</div>
-				<div class="bg-lime-300 aspect-video">2</div>
-			</div>
-			<div class="bg-lime-500">
-				2
-			</div>
+						width={post.image.asset.metadata.dimensions.width}
+						height={post.image.asset.metadata.dimensions.height}
+						src={post.image.asset.url} />
+				</figure>
+			))}
 		</section>
 	</main>
+
 </Layout>
 
 <!-- <style>

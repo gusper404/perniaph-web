@@ -15,15 +15,19 @@ export async function getStaticPaths() {
 
 const { slug } = Astro.props;
 const modelPosts = await getPostsByModel(slug)
-const modelName = modelPosts[0]?.model?.fullname || 'Modelo';
+const fullname = modelPosts[0]?.model?.fullname || 'Modelo';
 ---
 
-<Layout title={modelName}>
+<Layout title={fullname}>
   <main>
     <section class="space-y-4 md:space-y-10 p-4 md:p-10">
-      <h1 class="text-4xl md:text-6xl font-semibold text-center">{modelName}</h1>
+      <!-- <h1 class="text-4xl md:text-6xl font-semibold text-center">{fullname}</h1> -->
       <!-- categoria y ubicacion -->
       <div class="flex gap-4 md:gap-10">
+        <div class="flex flex-col gap-2">
+          <h3 class="font-semibold">Modelo</h3>
+          <p class="text-sm">{fullname}</p>
+        </div>
         <div class="flex flex-col gap-2">
           <h3 class="font-semibold">Categoría</h3>
           <p class="text-sm">{modelPosts[0]?.category?.title}</p>

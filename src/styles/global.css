@@ -15,6 +15,12 @@
     @apply font-bold;
   }
 }
+
+@layer components {
+  .rrss-icon {
+    @apply block opacity-60 hover:opacity-100 bg-white/20 backdrop-blur-sm p-2 rounded-full; 
+  }
+}
 /* 
 @layer components {
   .container-custom {

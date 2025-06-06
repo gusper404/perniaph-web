@@ -17,6 +17,9 @@ importers:
       '@fontsource-variable/comfortaa':
         specifier: ^5.1.1
         version: 5.1.1
+      '@lucide/astro':
+        specifier: ^0.513.0
+        version: 0.513.0(astro@4.16.10(@types/node@22.9.0)(rollup@4.25.0)(typescript@5.6.3))
       '@sanity/astro':
         specifier: ^3.1.6
         version: 3.1.6(@sanity/client@6.22.4)(@sanity/visual-editing@2.5.2(@sanity/client@6.22.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(astro@4.16.10(@types/node@22.9.0)(rollup@4.25.0)(typescript@5.6.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sanity@3.63.0(@types/node@22.9.0)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.1.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1)))
@@ -1138,6 +1141,11 @@ packages:
 
   '@juggle/resize-observer@3.4.0':
     resolution: {integrity: sha512-dfLbk+PwWvFzSxwk3n5ySL0hfBog779o8h68wK/7/APo/7cgyWp5jcXockbxdk5kFRkbeXWm4Fbi9FrdN381sA==}
+
+  '@lucide/astro@0.513.0':
+    resolution: {integrity: sha512-UFXmRjELW8q/Npc0Yfm5Oqer+kPnetbPK39vJ7LcsfHtMCZx2gZG/YNMnjHDhk2QHScClgo8RmQrf8xQZG99dA==}
+    peerDependencies:
+      astro: ^4 || ^5
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -5941,6 +5949,10 @@ snapshots:
       '@jridgewell/sourcemap-codec': 1.5.0
 
   '@juggle/resize-observer@3.4.0': {}
+
+  '@lucide/astro@0.513.0(astro@4.16.10(@types/node@22.9.0)(rollup@4.25.0)(typescript@5.6.3))':
+    dependencies:
+      astro: 4.16.10(@types/node@22.9.0)(rollup@4.25.0)(typescript@5.6.3)
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:

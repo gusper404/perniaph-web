@@ -1,12 +1,16 @@
 ---
+import { Camera } from '@lucide/astro';
 ---
 
-<header class="absolute top-0 left-0 w-full h-[100px] p-10">
+<header class="fixed top-0 left-0 w-full p-5 bg-black/50 backdrop-blur-sm">
   <div class="flex items-center justify-between">
-    <div class="logo text-">Pernía Photography</div>
+    <div class="logo text-white text-2xl font-bold flex items-center gap-2 leading-none">
+      <Camera size={28} />
+      Pernía Photography
+    </div>
     <div>
       <nav>
-        <ul class="flex items-center gap-10">
+        <ul class="flex items-center gap-10 text-white">
           <li><a href="/">Inicio</a></li>
           <li><a href="/sobre-mi">Sobre mí</a></li>
           <li><a href="">Contacto</a></li>

@@ -3,6 +3,7 @@ import '@fontsource-variable/comfortaa';
 import '../styles/global.css';
 import Header from "../components/Header.astro";
 import { getSettings } from "../services";
+// @ts-ignore
 const { title } = Astro.props;
 const settings = await getSettings()
 ---

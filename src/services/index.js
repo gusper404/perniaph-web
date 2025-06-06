@@ -23,7 +23,8 @@ export const getPosts = async () => {
     },
     model->{
       fullname,
-      rrss
+      rrss,
+      slug
     }
   } | order(publishedAt desc)`);
 }
@@ -95,4 +96,15 @@ export const getPostByModel = async (slug) => {
       rrss
     }
   }`)
+}
+
+// Obtener todos los slugs únicos de los modelos
+export const getAllSlugs = async () => {
+  const posts = await getPosts();
+  // Extraer los slugs de los modelos, filtrando nulos y duplicados
+  const slugs = posts
+    .map(post => post.model?.slug)
+    .filter(Boolean);
+  // Eliminar duplicados
+  return Array.from(new Set(slugs));
 }

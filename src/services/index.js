@@ -51,7 +51,8 @@ export const getHomePosts = async () => {
     },
     model->{
       fullname,
-      rrss
+      rrss,
+      slug
     }
   } | order(publishedAt desc)`);
 }
@@ -66,5 +67,32 @@ export const getSettings = async () => {
       }
     },
     rrss
+  }`)
+}
+
+export const getPostByModel = async (slug) => {
+  return await sanityClient.fetch(groq`*[_type == 'photography' && model.slug == $slug][0] {
+    _id,
+    _createdAt,
+    image {
+      asset->{
+        url,
+        metadata {
+          dimensions
+        }
+      }
+    },
+    category->{
+      _id,
+      title
+    },
+    location->{
+      _id,
+      title
+    },
+    model->{
+      fullname,
+      rrss
+    }
   }`)
 }

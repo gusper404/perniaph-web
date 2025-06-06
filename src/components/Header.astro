@@ -1,5 +1,6 @@
 ---
 import { Camera } from '@lucide/astro';
+import { phone } from '../utils/constants';
 ---
 
 <header class="fixed z-10 grid content-center top-0 left-0 w-full p-5 h-20 bg-white/20 backdrop-blur-md">
@@ -13,7 +14,7 @@ import { Camera } from '@lucide/astro';
         <ul class="flex items-center gap-10 text-white">
           <li><a href="/">Inicio</a></li>
           <li><a href="/sobre-mi">Sobre mí</a></li>
-          <li><a href="">Contacto</a></li>
+          <li><a href={`https://wa.me/${phone.number}`} target="_blank">Contacto</a></li>
         </ul>
       </nav>
     </div>

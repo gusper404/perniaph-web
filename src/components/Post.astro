@@ -290,10 +290,10 @@ const { post } = Astro.props;
 
 
 <div class="space-y-4">
-  <figure class="w-full bg-slate-950 text-white relative">
-      <a href={`/model/${post.model.slug?.current}`}>
+  <figure class="w-full bg-slate-950 text-white relative overflow-hidden">
+      <a href={`/model/${post.model.slug?.current}`} class="block">
       <Image
-        class="w-full" 
+        class="w-full transition-transform duration-300 hover:scale-110 opacity-80 hover:opacity-100" 
         alt="Foto"
         width={post.image.asset.metadata.dimensions.width}
         height={post.image.asset.metadata.dimensions.height}
@@ -323,9 +323,8 @@ const { post } = Astro.props;
   <div class="space-y-1">
     <h3 class="text-xl font-semibold">{post.model.fullname}</h3>
     <div class="flex items-center gap-2 text-sm text-slate-500">
-      <p>{post.category.title}</p>
-      -
-      <p>{post.location.title}</p>
+      {post.category.title && <p>{post.category.title}</p>}
+      {post.location.title && <p>- {post.location.title}</p>}
     </div>
   </div>
 </div>

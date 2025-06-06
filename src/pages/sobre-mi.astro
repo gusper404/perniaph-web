@@ -1,18 +1,19 @@
 ---
-import { Image } from "astro:assets";
+// @ts-ignore
+import { Image } from 'astro:assets';
 import Layout from "../layouts/Layout.astro";
 import { getSettings } from "../services";
 const settings = await getSettings()
 ---
 <Layout title="Sobre mí">
 
-  <div class="mx-auto max-w-[1300px] px-10 md:h-screen md:flex items-center md:pt-0 pt-[100px] pb-4">
+  <div class="mx-auto max-w-[1300px] p-4 md:p-10 md:flex items-center">
     <div class="grid md:grid-cols-2 gap-10 items-center">
       <div>
-        <div class="space-y-4">
-          <h1 class="text-6xl font-semibold">Sobre mí</h1>
+        <div class="space-y-2 md:space-y-4">
+          <h1 class="text-4xl md:text-6xl font-semibold">Sobre mí</h1>
           <h1 class="text-2xl font-semibold text-red-600">{settings.title}</h1>
-          <div class="prose">
+          <div class="prose prose-sm md:prose-base text-slate-100">
             <p>{settings.bio}</p>
           </div>
           <div>

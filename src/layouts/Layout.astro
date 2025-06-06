@@ -18,8 +18,10 @@ const settings = await getSettings()
 		<title>{settings.title} {title && `- ${title}`}</title>
 	</head>
 	<body>
-		<Header />
-		<slot />
+		<div class="grid grid-rows-[1fr_auto]">
+			<div><Header /></div>
+			<div><slot /></div>
+		</div>
 	</body>
 </html>
 <style is:global>

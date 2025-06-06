@@ -4,6 +4,12 @@ import { getPosts, getHomePosts } from '../services';
 // @ts-ignore
 import { Image } from 'astro:assets';
 const homePosts = await getHomePosts()
+const homePostsColumnOne = homePosts.filter((post, index) => index % 2 === 0)
+const homePostsColumnTwo = homePosts.filter((post, index) => index % 2 !== 0)
+
+const homePostsColumnOneSorted = homePostsColumnOne.sort(() => Math.random() - 0.5)
+const homePostsColumnTwoSorted = homePostsColumnTwo.sort(() => Math.random() - 0.5)
+
 // const randomPosts = homePosts.sort(() => Math.random() - 0.5)
 
 
@@ -293,17 +299,35 @@ const homePosts = await getHomePosts()
 <Layout title="Inicio">
 	<main>
 		<!-- <pre><code>{JSON.stringify(homePosts, null, 2)}</code></pre> -->
-		<section class="columns-2 gap-0">
-			{homePosts.sort(() => Math.random() - 0.5).map((post) => (
-				<figure class="w-full bg-slate-950 text-white">
-					<Image
-						class="w-full" 
-						alt="Foto"
-						width={post.image.asset.metadata.dimensions.width}
-						height={post.image.asset.metadata.dimensions.height}
-						src={post.image.asset.url} />
-				</figure>
-			))}
+
+		<section class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-10 p-4 md:p-10">
+			<div class="flex flex-col gap-4 md:gap-10">
+				{homePostsColumnOneSorted.map((post) => (
+					<figure class="w-full bg-slate-950 text-white">
+						<Image
+							class="w-full" 
+							alt="Foto"
+							width={post.image.asset.metadata.dimensions.width}
+							height={post.image.asset.metadata.dimensions.height}
+							src={post.image.asset.url} />
+					</figure>
+				))}
+			</div>
+			<div class="flex flex-col gap-4 md:gap-10">
+				{homePostsColumnTwoSorted.map((post) => (
+						<figure class="w-full bg-slate-950 text-white">
+							<Image
+								class="w-full" 
+								alt="Foto"
+								width={post.image.asset.metadata.dimensions.width}
+								height={post.image.asset.metadata.dimensions.height}
+								src={post.image.asset.url} />
+						</figure>
+				))}
+				<div class="bg-slate-900/50 backdrop-blur-sm h-full flex items-center justify-center text-white">
+					Contactame
+				</div>
+			</div>
 		</section>
 	</main>
 

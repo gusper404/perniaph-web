@@ -1,0 +1,61 @@
+---
+import { Camera, Instagram, Mail, Phone } from '@lucide/astro';
+import { phone } from '../utils/constants';
+---
+
+<footer class="w-full bg-slate-800 text-white py-8">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Logo y descripción -->
+      <div class="flex flex-col gap-4">
+        <a href="/" class="logo text-white text-2xl font-bold flex items-center gap-2 leading-none">
+          <Camera size={28} />
+          Pernía Photography
+        </a>
+        <p class="text-gray-300">Capturando momentos especiales con pasión y profesionalismo.</p>
+      </div>
+
+      <!-- Navegación -->
+      <div>
+        <h3 class="text-lg font-semibold mb-4">Navegación</h3>
+        <nav>
+          <ul class="flex flex-col gap-2">
+            <li><a href="/" class="hover:text-gray-300 transition-colors">Inicio</a></li>
+            <li><a href="/sobre-mi" class="hover:text-gray-300 transition-colors">Sobre mí</a></li>
+            <li><a href="/galeria" class="hover:text-gray-300 transition-colors">Galería</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Contacto -->
+      <div>
+        <h3 class="text-lg font-semibold mb-4">Contacto</h3>
+        <ul class="flex flex-col gap-2">
+          <li class="flex items-center gap-2">
+            <Phone size={20} />
+            <a href={`https://wa.me/${phone.number}`} target="_blank" class="hover:text-gray-300 transition-colors">
+              {phone.number}
+            </a>
+          </li>
+          <li class="flex items-center gap-2">
+            <Mail size={20} />
+            <a href="mailto:contacto@perniaph.com" class="hover:text-gray-300 transition-colors">
+              contacto@perniaph.com
+            </a>
+          </li>
+          <li class="flex items-center gap-2">
+            <Instagram size={20} />
+            <a href="https://instagram.com/perniaph" target="_blank" class="hover:text-gray-300 transition-colors">
+              @perniaph
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400">
+      <p>&copy; {new Date().getFullYear()} Pernía Photography. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>

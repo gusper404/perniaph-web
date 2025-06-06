@@ -1,0 +1,329 @@
+---
+// @ts-ignore
+import { Image } from 'astro:assets';
+// @ts-ignore
+const { post } = Astro.props;
+
+// contrato JSON
+// [ 
+// {
+//     "_createdAt": "2024-11-01T00:00:21Z",
+//     "_id": "404eaa33-da64-46e1-9ba4-4573c7a275b1",
+//     "category": {
+//       "_id": "8d862985-00b8-40f3-bd8a-37a388c00602",
+//       "title": "Polas"
+//     },
+//     "image": {
+//       "asset": {
+//         "metadata": {
+//           "dimensions": {
+//             "_type": "sanity.imageDimensions",
+//             "aspectRatio": 1.3771661569826708,
+//             "height": 981,
+//             "width": 1351
+//           }
+//         },
+//         "url": "https://cdn.sanity.io/images/kkbq5txa/production/d8eb5ebbaeebf3ccfc9e0951b18cec6fe57cc9e6-1351x981.jpg"
+//       }
+//     },
+//     "location": {
+//       "_id": "0988ab8f-2343-457e-b10c-49b42c49605e",
+//       "title": "Buenos Aires"
+//     },
+//     "model": {
+//       "fullname": "Angely Marquez",
+//       "rrss": [
+//         "https://www.instagram.com/angely_marquezl/#"
+//       ]
+//     }
+//   },
+//   {
+//     "_createdAt": "2024-11-07T22:55:43Z",
+//     "_id": "49771b08-b483-4771-b37a-03fb4bcfa162",
+//     "category": {
+//       "_id": "b34a5ce5-4d8c-41dd-b23b-a005edb4b62b",
+//       "title": "Desnudo Artistico"
+//     },
+//     "image": {
+//       "asset": {
+//         "metadata": {
+//           "dimensions": {
+//             "_type": "sanity.imageDimensions",
+//             "aspectRatio": 0.6675531914893617,
+//             "height": 1504,
+//             "width": 1004
+//           }
+//         },
+//         "url": "https://cdn.sanity.io/images/kkbq5txa/production/7395f67a7b944c207c2b4e395c5844535109ead7-1004x1504.jpg"
+//       }
+//     },
+//     "location": {
+//       "_id": "0988ab8f-2343-457e-b10c-49b42c49605e",
+//       "title": "Buenos Aires"
+//     },
+//     "model": {
+//       "fullname": "Bianca Pavetti",
+//       "rrss": [
+//         "https://www.instagram.com/lamounstrua/#"
+//       ]
+//     }
+//   },
+//   {
+//     "_createdAt": "2024-11-06T19:26:33Z",
+//     "_id": "58e9d757-2720-44e4-9a8b-932ee2236f96",
+//     "category": {
+//       "_id": "b34a5ce5-4d8c-41dd-b23b-a005edb4b62b",
+//       "title": "Desnudo Artistico"
+//     },
+//     "image": {
+//       "asset": {
+//         "metadata": {
+//           "dimensions": {
+//             "_type": "sanity.imageDimensions",
+//             "aspectRatio": 0.6623376623376623,
+//             "height": 4928,
+//             "width": 3264
+//           }
+//         },
+//         "url": "https://cdn.sanity.io/images/kkbq5txa/production/a1b8cd03aef6097f8f85717888ecb4bbe16ec4d0-3264x4928.jpg"
+//       }
+//     },
+//     "location": {
+//       "_id": "0988ab8f-2343-457e-b10c-49b42c49605e",
+//       "title": "Buenos Aires"
+//     },
+//     "model": {
+//       "fullname": "Magenta Magnelli ",
+//       "rrss": [
+//         "https://www.instagram.com/magenta_modelo_vivo?igsh=MXNnMXdiNGdjbDVuYQ%3D%3D"
+//       ]
+//     }
+//   },
+//   {
+//     "_createdAt": "2024-11-05T13:23:18Z",
+//     "_id": "6470b7d6-f0b2-4414-a191-a9bc08199b06",
+//     "category": {
+//       "_id": "8d862985-00b8-40f3-bd8a-37a388c00602",
+//       "title": "Polas"
+//     },
+//     "image": {
+//       "asset": {
+//         "metadata": {
+//           "dimensions": {
+//             "_type": "sanity.imageDimensions",
+//             "aspectRatio": 0.6671875,
+//             "height": 640,
+//             "width": 427
+//           }
+//         },
+//         "url": "https://cdn.sanity.io/images/kkbq5txa/production/db3e54a2c68f415db4f3a965f2448a2f5f536745-427x640.jpg"
+//       }
+//     },
+//     "location": {
+//       "_id": "0988ab8f-2343-457e-b10c-49b42c49605e",
+//       "title": "Buenos Aires"
+//     },
+//     "model": {
+//       "fullname": "Gabriela Becerra",
+//       "rrss": [
+//         "https://www.instagram.com/gabrielab_261/?hl=es#"
+//       ]
+//     }
+//   },
+//   {
+//     "_createdAt": "2024-10-31T23:30:24Z",
+//     "_id": "65c36f51-4b35-44a6-82ab-3a5397ff7f2f",
+//     "category": {
+//       "_id": "b34a5ce5-4d8c-41dd-b23b-a005edb4b62b",
+//       "title": "Desnudo Artistico"
+//     },
+//     "image": {
+//       "asset": {
+//         "metadata": {
+//           "dimensions": {
+//             "_type": "sanity.imageDimensions",
+//             "aspectRatio": 0.6590643274853801,
+//             "height": 1710,
+//             "width": 1127
+//           }
+//         },
+//         "url": "https://cdn.sanity.io/images/kkbq5txa/production/f9f4e67573710b1128ae23a18d7756a9f5856c4b-1127x1710.jpg"
+//       }
+//     },
+//     "location": {
+//       "_id": "0988ab8f-2343-457e-b10c-49b42c49605e",
+//       "title": "Buenos Aires"
+//     },
+//     "model": {
+//       "fullname": "Fio Killer Bunny",
+//       "rrss": null
+//     }
+//   },
+//   {
+//     "_createdAt": "2024-11-08T22:06:57Z",
+//     "_id": "6f3b95b1-92c5-4cbf-a343-ebcd4d761a1f",
+//     "category": {
+//       "_id": "0238df3b-e9e5-4f3d-abaa-5aaa0dd4b551",
+//       "title": "Editorial"
+//     },
+//     "image": {
+//       "asset": {
+//         "metadata": {
+//           "dimensions": {
+//             "_type": "sanity.imageDimensions",
+//             "aspectRatio": 1.6363636363636365,
+//             "height": 660,
+//             "width": 1080
+//           }
+//         },
+//         "url": "https://cdn.sanity.io/images/kkbq5txa/production/effaceee8506a7f118ef8276d037fb07922c7226-1080x660.jpg"
+//       }
+//     },
+//     "location": {
+//       "_id": "0988ab8f-2343-457e-b10c-49b42c49605e",
+//       "title": "Buenos Aires"
+//     },
+//     "model": {
+//       "fullname": "Olivia Carbone",
+//       "rrss": [
+//         "https://www.instagram.com/olicarbxne/#"
+//       ]
+//     }
+//   },
+//   {
+//     "_createdAt": "2024-11-08T21:59:33Z",
+//     "_id": "94b60583-a2fd-41a4-b39c-c6a80b0df216",
+//     "category": {
+//       "_id": "0238df3b-e9e5-4f3d-abaa-5aaa0dd4b551",
+//       "title": "Editorial"
+//     },
+//     "image": {
+//       "asset": {
+//         "metadata": {
+//           "dimensions": {
+//             "_type": "sanity.imageDimensions",
+//             "aspectRatio": 0.8,
+//             "height": 745,
+//             "width": 596
+//           }
+//         },
+//         "url": "https://cdn.sanity.io/images/kkbq5txa/production/b1764c2ee11d44de746dff50e09c8c026ed4b9ee-596x745.jpg"
+//       }
+//     },
+//     "location": {
+//       "_id": "0988ab8f-2343-457e-b10c-49b42c49605e",
+//       "title": "Buenos Aires"
+//     },
+//     "model": {
+//       "fullname": "Camila Perez",
+//       "rrss": [
+//         "https://www.instagram.com/camilaevaperez/#"
+//       ]
+//     }
+//   },
+//   {
+//     "_createdAt": "2024-11-06T18:45:55Z",
+//     "_id": "b4f7c3fe-18ee-4ff2-97ea-5769a2eef0f5",
+//     "category": {
+//       "_id": "b34a5ce5-4d8c-41dd-b23b-a005edb4b62b",
+//       "title": "Desnudo Artistico"
+//     },
+//     "image": {
+//       "asset": {
+//         "metadata": {
+//           "dimensions": {
+//             "_type": "sanity.imageDimensions",
+//             "aspectRatio": 0.75,
+//             "height": 1084,
+//             "width": 813
+//           }
+//         },
+//         "url": "https://cdn.sanity.io/images/kkbq5txa/production/0aab93070663ee4ba672dc33a19e0ebc0ccd58f0-813x1084.jpg"
+//       }
+//     },
+//     "location": {
+//       "_id": "0988ab8f-2343-457e-b10c-49b42c49605e",
+//       "title": "Buenos Aires"
+//     },
+//     "model": {
+//       "fullname": "Emilia Stöltzing",
+//       "rrss": [
+//         "https://www.instagram.com/emi.stolt/#"
+//       ]
+//     }
+//   },
+//   {
+//     "_createdAt": "2024-11-07T23:56:15Z",
+//     "_id": "c5433a4d-1ab8-481c-9665-939b60436de4",
+//     "category": {
+//       "_id": "0238df3b-e9e5-4f3d-abaa-5aaa0dd4b551",
+//       "title": "Editorial"
+//     },
+//     "image": {
+//       "asset": {
+//         "metadata": {
+//           "dimensions": {
+//             "_type": "sanity.imageDimensions",
+//             "aspectRatio": 0.8744939271255061,
+//             "height": 1729,
+//             "width": 1512
+//           }
+//         },
+//         "url": "https://cdn.sanity.io/images/kkbq5txa/production/1163e44d846fd70f84d6aa27b41f77f9011ee08d-1512x1729.jpg"
+//       }
+//     },
+//     "location": {
+//       "_id": "0988ab8f-2343-457e-b10c-49b42c49605e",
+//       "title": "Buenos Aires"
+//     },
+//     "model": {
+//       "fullname": "Trinidad Gonzalez",
+//       "rrss": [
+//         "https://www.instagram.com/trinidad.artmodel/#"
+//       ]
+//     }
+//   }
+// ]
+---
+
+
+
+
+<div class="space-y-4">
+  <figure class="w-full bg-slate-950 text-white relative">
+    <Image
+      class="w-full" 
+      alt="Foto"
+      width={post.image.asset.metadata.dimensions.width}
+      height={post.image.asset.metadata.dimensions.height}
+      src={post.image.asset.url} />
+
+      {post.model.rrss && (
+      <div class="absolute bottom-4 right-4 bg-white/20 backdrop-blur-sm p-2 rounded-full">
+          {post.model.rrss.map(rs => {
+            if (rs.includes('instagram')) {
+              return (
+                <a href={rs} target="_blank" class="opacity-60 hover:opacity-100"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
+              )
+            } else if (rs.includes('facebook')) {
+              return (
+                <a href={rs} target="_blank" class="opacity-60 hover:opacity-100"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+              )
+            } else if (rs.includes('youtube')) {
+              return (
+                <a href={rs} target="_blank" class="opacity-60 hover:opacity-100"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-youtube"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg></a>
+              )
+            } else return null
+          })}
+      </div>
+        )}
+  </figure>
+  <div class="space-y-1">
+    <h3 class="text-xl font-semibold">{post.model.fullname}</h3>
+    <div class="flex items-center gap-2 *:text-sm">
+      <p>{post.category.title}</p>
+      -
+      <p>{post.location.title}</p>
+    </div>
+  </div>
+</div>

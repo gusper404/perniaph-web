@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { getPosts } from '../../services';
+import { getPosts, getPostsByModel } from '../../services';
 import { Image } from 'astro:assets';
 
 export async function getStaticPaths() {
@@ -14,8 +14,7 @@ export async function getStaticPaths() {
 }
 
 const { slug } = Astro.props;
-const posts = await getPosts();
-const modelPosts = posts.filter(post => post.model?.slug?.current === slug);
+const modelPosts = await getPostsByModel(slug)
 const modelName = modelPosts[0]?.model?.fullname || 'Modelo';
 ---
 

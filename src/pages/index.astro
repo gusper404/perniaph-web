@@ -1,8 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { getPosts, getHomePosts } from '../services';
+import { getHomePosts } from '../services';
 import Post from '../components/Post.astro';
 import { phone } from '../utils/constants';
+
 // @ts-ignore
 import { Image } from 'astro:assets';
 const homePosts = await getHomePosts()
@@ -12,6 +13,7 @@ const homePostsColumnTwo = homePosts.filter((post, index) => index % 2 !== 0)
 const homePostsColumnOneSorted = homePostsColumnOne.sort(() => Math.random() - 0.5)
 const homePostsColumnTwoSorted = homePostsColumnTwo.sort(() => Math.random() - 0.5)
 
+
 // const randomPosts = homePosts.sort(() => Math.random() - 0.5)
 
 ---
@@ -19,8 +21,6 @@ const homePostsColumnTwoSorted = homePostsColumnTwo.sort(() => Math.random() - 0
 
 <Layout title="Inicio">
 	<main>
-		<!-- <pre><code>{JSON.stringify(homePosts, null, 2)}</code></pre> -->
-
 		<section class="space-y-4 md:space-y-10 p-4 md:p-10">
 			<h2 class="text-4xl md:text-6xl font-semibold text-center">Portfolio</h2>
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-10">

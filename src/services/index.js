@@ -72,7 +72,7 @@ export const getSettings = async () => {
 }
 
 export const getPostsByModel = async (slug) => {
-  return await sanityClient.fetch(groq`*[_type == 'photography' && model.slug == $slug] {
+  return await sanityClient.fetch(groq`*[_type == 'photography' && model->slug.current == '${slug}'] {
     _id,
     _createdAt,
     image {

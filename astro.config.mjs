@@ -7,6 +7,10 @@ import react from '@astrojs/react';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://perniaph.com',
+  redirects: {
+    '/admin': 'https://perniaph.sanity.studio/structure',
+  },
   integrations: [
     tailwind(), 
     react(),

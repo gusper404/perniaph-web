@@ -22,44 +22,40 @@ const fullname = modelPosts[0]?.model?.fullname || 'Modelo';
 
 <Layout title={fullname}>
   <main>
-    <section class="space-y-4 md:space-y-10 p-4 md:p-10">
+    <section class="px-4 md:px-10">
       <!-- <h1 class="text-4xl md:text-6xl font-semibold text-center">{fullname}</h1> -->
       <!-- categoria y ubicacion -->
-      <div class="flex gap-4 md:gap-10">
-        <div class="flex flex-col gap-2">
-          <h3 class="font-semibold">Modelo</h3>
-          <p class="text-sm">{fullname}</p>
+      <div class="border-t border-white/10 space-y-4 pb-4 md:pb-10">
+        <div class="flex items-center gap-4 border-b border-white/10 text-sm py-4">
+          <p>{fullname}</p>
+          <p class="text-white/50">•</p>
+          <p>{modelPosts[0]?.category?.title}</p>
+          <p class="text-white/50">•</p>
+          <p>{modelPosts[0]?.location?.title}</p>
         </div>
-        <div class="flex flex-col gap-2">
-          <h3 class="font-semibold">Categoría</h3>
-          <p class="text-sm">{modelPosts[0]?.category?.title}</p>
-        </div>
-        <div class="flex flex-col gap-2">
-          <h3 class="font-semibold">Ubicación</h3>
-          <p class="text-sm">{modelPosts[0]?.location?.title}</p>
-        </div>
-      </div>
 
-      <Masonry
-				class="flex gap-4 md:gap-10"
-				columnClass="flex flex-col gap-4 md:gap-10"
-				breakpointCols={{
-					default: modelPosts.length === 1 ? 1 : 2,
-					1100: 1
-				}}
-				sortByHeight={true}
-			>
-        {modelPosts.map((post) => (
-          <figure class="w-full bg-slate-950 text-white relative overflow-hidden">
-            <Image
-              class="w-full" 
-              alt={`Foto de ${post.model?.fullname}`}
-              width={post.image.asset.metadata.dimensions.width}
-              height={post.image.asset.metadata.dimensions.height}
-              src={post.image.asset.url} />
-          </figure>
-        ))}
-			</Masonry>
+  
+        <Masonry
+  				class="flex gap-4 md:gap-10"
+  				columnClass="flex flex-col gap-4 md:gap-10"
+  				breakpointCols={{
+  					default: modelPosts.length === 1 ? 1 : 2,
+  					1100: 1
+  				}}
+  				sortByHeight={true}
+  			>
+          {modelPosts.map((post) => (
+            <figure class="w-full bg-slate-950 text-white relative overflow-hidden">
+              <Image
+                class="w-full" 
+                alt={`Foto de ${post.model?.fullname}`}
+                width={post.image.asset.metadata.dimensions.width}
+                height={post.image.asset.metadata.dimensions.height}
+                src={post.image.asset.url} />
+            </figure>
+          ))}
+  			</Masonry>
+      </div>
     </section>
   </main>
 </Layout> 

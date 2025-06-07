@@ -20,6 +20,7 @@
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "astro": "^4.16.10",
+    "astro-masonry": "^1.2.2",
     "groq": "^3.63.0",
     "imagesloaded": "^5.0.0",
     "masonry-layout": "^4.2.2",

@@ -38,6 +38,9 @@ importers:
       astro:
         specifier: ^4.16.10
         version: 4.16.10(@types/node@22.9.0)(rollup@4.25.0)(typescript@5.6.3)
+      astro-masonry:
+        specifier: ^1.2.2
+        version: 1.2.2
       groq:
         specifier: ^3.63.0
         version: 3.63.0
@@ -1770,6 +1773,9 @@ packages:
   arrify@2.0.1:
     resolution: {integrity: sha512-3duEwti880xqi4eAMN8AyR4a0ByT90zoYdLlevfrvU43vb0YZwZVfxOgxWrLXXXpyugL0hNZc9G6BiB5B3nUug==}
     engines: {node: '>=8'}
+
+  astro-masonry@1.2.2:
+    resolution: {integrity: sha512-416VOoR+6dVjOyM2pxlQFj4AiFIV6NdA6WFUFqkVTitaG61o+5Sz0YTA20FAW7xnbIVWru9h6XIWNeEy3hiPmA==}
 
   astro@4.16.10:
     resolution: {integrity: sha512-a+nB4bZE50NXHLzVXUHtx/lYct2Aa8kbqZnWNrWqkU97RuhBuWJ5H5/LQbKRnBWGvqChKfJBiMWJe53TY9ieYQ==}
@@ -6750,6 +6756,8 @@ snapshots:
   arrify@1.0.1: {}
 
   arrify@2.0.1: {}
+
+  astro-masonry@1.2.2: {}
 
   astro@4.16.10(@types/node@22.9.0)(rollup@4.25.0)(typescript@5.6.3):
     dependencies:

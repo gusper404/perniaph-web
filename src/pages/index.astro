@@ -4,6 +4,8 @@ import Layout from '../layouts/Layout.astro';
 import { getHomePosts } from '../services';
 import Post from '../components/Post.astro';
 const homePosts = await getHomePosts()
+
+const homePostsRandom = homePosts.sort(() => Math.random() - 0.5)
 ---
 
 
@@ -21,7 +23,7 @@ const homePosts = await getHomePosts()
 					}}
 					sortByHeight={true}
 				>
-					{homePosts.map((post) => (
+					{homePostsRandom.map((post) => (
 						<Post post={post} />
 					))}
 	

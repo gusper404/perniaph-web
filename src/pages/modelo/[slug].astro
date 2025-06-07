@@ -1,4 +1,6 @@
 ---
+// @ts-ignore
+import { Masonry } from 'astro-masonry';
 import Layout from '../../layouts/Layout.astro';
 import { getPosts, getPostsByModel } from '../../services';
 import { Image } from 'astro:assets';
@@ -38,18 +40,26 @@ const fullname = modelPosts[0]?.model?.fullname || 'Modelo';
         </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-10">
+      <Masonry
+				class="flex gap-4 md:gap-10"
+				columnClass="flex flex-col gap-4 md:gap-10"
+				breakpointCols={{
+					default: 2,
+					1100: 1
+				}}
+				sortByHeight={true}
+			>
         {modelPosts.map((post) => (
           <figure class="w-full bg-slate-950 text-white relative overflow-hidden">
             <Image
-              class="w-full transition-transform duration-300 hover:scale-110 opacity-80 hover:opacity-100" 
+              class="w-full" 
               alt={`Foto de ${post.model?.fullname}`}
               width={post.image.asset.metadata.dimensions.width}
               height={post.image.asset.metadata.dimensions.height}
               src={post.image.asset.url} />
           </figure>
         ))}
-      </div>
+			</Masonry>
     </section>
   </main>
 </Layout> 

@@ -19,9 +19,9 @@ const settings = await getSettings()
 		<title>{settings.title} {title && `- ${title}`}</title>
 	</head>
 	<body>
-		<div class="grid grid-rows-[1fr_auto]">
+		<div class="grid grid-rows-[auto_1fr_auto] h-screen">
 			<div><Header /></div>
-			<div class="max-w-[1600px] mx-auto"><slot /></div>
+			<div class="max-w-[1600px] mx-auto h-full"><slot /></div>
 			<div><Footer /></div>
 		</div>
 	</body>

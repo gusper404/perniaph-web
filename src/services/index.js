@@ -31,7 +31,8 @@ export const getPosts = async () => {
 
 // getHomePosts
 export const getHomePosts = async () => {
-  return await sanityClient.fetch(groq`*[_type == 'photography' && showInHome == true][0...10] {
+  // return await sanityClient.fetch(groq`*[_type == 'photography' && showInHome == true][0...10] {
+  return await sanityClient.fetch(groq`*[_type == 'photography' && showInHome == true] {
     _id,
     _createdAt,
      image {

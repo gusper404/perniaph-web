@@ -44,7 +44,7 @@ const fullname = modelPosts[0]?.model?.fullname || 'Modelo';
 				class="flex gap-4 md:gap-10"
 				columnClass="flex flex-col gap-4 md:gap-10"
 				breakpointCols={{
-					default: 2,
+					default: modelPosts.length === 1 ? 1 : 2,
 					1100: 1
 				}}
 				sortByHeight={true}

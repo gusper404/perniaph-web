@@ -13,10 +13,24 @@ const settings = await getSettings()
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
+		<meta name="description" content="Retratos con identidad visual única, integrando dirección de arte y mirada cinematográfica. Experiencia profesional y colaborativa en Buenos Aires." />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<title>{settings.title} {title && `- ${title}`}</title>
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={Astro.url} />
+		<meta property="og:title" content={`${settings.title} ${title ? `- ${title}` : ''}`} />
+		<meta property="og:description" content="Retratos con identidad visual única, integrando dirección de arte y mirada cinematográfica. Experiencia profesional y colaborativa en Buenos Aires." />
+		<meta property="og:image" content={settings.image.asset.url} />
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={Astro.url} />
+		<meta property="twitter:title" content={`${settings.title} ${title ? `- ${title}` : ''}`} />
+		<meta property="twitter:description" content={settings.description || "Astro description"} />
+		<meta property="twitter:image" content={settings.image.asset.url} />
 	</head>
 	<body>
 		<div class="grid grid-rows-[auto_1fr_auto] h-screen">

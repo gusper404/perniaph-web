@@ -1,4 +1,5 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
 import '@fontsource-variable/comfortaa';
 import '../styles/global.css';
 import Header from "../components/Header.astro";
@@ -33,6 +34,7 @@ const description = "Servicios profesionales de fotografía en Buenos Aires."
 		<meta property="twitter:title" content={settings.title} />
 		<meta property="twitter:description" content={description} />
 		<meta property="twitter:image" content={settings.image.asset.url} />
+		<ViewTransitions />
 	</head>
 	<body>
 		<div class="grid grid-rows-[auto_1fr_auto] h-screen">
